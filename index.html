@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunwoo Jeong &mdash; Software Engineer</title>
+  <meta name="description" content="Software engineer with 3+ years at Amazon building backend services, data pipelines, and ML/LLM workflows. Portfolio of work and personal projects." />
+  <link rel="canonical" href="https://swjapps.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sunwoo Jeong &mdash; Software Engineer" />
+  <meta property="og:description" content="Backend, data pipelines, and LLM systems. Ex-Amazon SDE. Portfolio of work and personal projects." />
+  <meta property="og:url" content="https://swjapps.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-brand" href="./" aria-label="Home">
+          <span class="brand-mark">SJ</span>
+          <span>Sunwoo Jeong</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open navigation menu">
+          <span></span>
+        </button>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="./" aria-current="page">Home</a></li>
+          <li><a href="projects/">Projects</a></li>
+          <li><a href="experience/">Experience</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Software Engineer</p>
+        <h1>Backend, data pipelines, and LLM systems built to run at scale.</h1>
+        <p class="lead">
+          I'm a software engineer with 3+ years at Amazon building backend services and data
+          pipelines on AWS &mdash; including systems handling over 1M requests per minute at sub-160 ms
+          latency &mdash; and ML / LLM workflows for catalog quality at very large scale.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="experience/">
+            View experience
+            <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a class="btn btn-secondary" href="projects/">
+            View projects
+            <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="contact/">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="highlights-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">By the numbers</p>
+          <h2 id="highlights-h">Highlights from production work</h2>
+        </div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-num">3+ yrs</div>
+            <div class="highlight-label">Software Engineer at Amazon (2022&ndash;2026)</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-num">1M+ req/min</div>
+            <div class="highlight-label">Backend services delivering at sub-160&nbsp;ms latency</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-num">600M items</div>
+            <div class="highlight-label">Two-stage ML/LLM pipeline detecting catalog misclassifications</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-num">Multilingual</div>
+            <div class="highlight-label">Embedding pipeline expanded to international marketplaces with PyTorch</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-num">~5% CTR lift</div>
+            <div class="highlight-label">Real-time Customer Affinity pipeline validated in a 4-week production A/B test vs. batch baseline</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="about-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">About</p>
+          <h2 id="about-h">A backend engineer who builds backend services and data pipelines that scale, evolve cleanly, and fail predictably.</h2>
+        </div>
+        <div class="prose stack">
+          <p>
+            Most of my Amazon work has lived where ambiguity meets scale &mdash; designing event-driven
+            pipelines on SQS and Lambda, building contract-first services on API Gateway with
+            Smithy and AWS CDK, and shipping ML/LLM workflows that operate against 600M-item catalogs.
+            One project I'm particularly proud of: I built the team's first real-time Customer Affinity
+            pipeline (SQS &rarr; Lambda &rarr; DynamoDB) to replace a daily batch job with sub-minute
+            signal freshness, then validated the end-to-end system in a four-week production A/B test
+            that showed a ~5% directional lift in click rate. The read API was later adopted by
+            another team's production use case.
+            I care about systems that fail predictably, evolve cleanly, and stay observable in production.
+          </p>
+          <p>
+            On personal projects I've leaned into LLM-powered UX. The pattern I keep coming back to:
+            put the LLM in front of users for natural-language input, but keep it out of the write path.
+            In the Tennis League Management Bot, the chat-to-intent service interprets user messages and
+            returns either read data or a pre-filled form payload &mdash; the user always confirms, and
+            domain validation lives only in the core backend.
+          </p>
+          <p>
+            I'm comfortable across Python, Java, and TypeScript, with deep AWS experience and growing
+            depth in DDD-style backend modeling and structured-output LLM design. Currently exploring
+            roles where backend rigor and LLM-driven product surfaces meet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="featured-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="featured-h">Featured projects</h2>
+          <p>Two recent personal projects exploring LLM-driven product surfaces with strict backend boundaries.</p>
+        </div>
+
+        <div class="featured-pair">
+          <article class="project-card">
+            <p class="eyebrow">Live &middot; tlmb.swjapps.com</p>
+            <h3><a href="projects/tlmb.html">Tennis League Management Bot</a></h3>
+            <p>
+              A chat-first tennis league app. A lightweight LLM intent service interprets messages,
+              while a FastAPI/PostgreSQL backend owns all domain logic and writes &mdash; humans
+              always confirm form payloads before any mutation hits the database.
+            </p>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">Python</li>
+              <li class="chip">FastAPI</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">SQLAlchemy</li>
+              <li class="chip">OpenAI / Groq</li>
+              <li class="chip">DDD</li>
+            </ul>
+            <div class="links">
+              <a href="projects/tlmb.html">
+                Read case study
+                <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://tlmb.swjapps.com" target="_blank" rel="noopener noreferrer">Live site</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Live &middot; auto-bookclub-ai.vercel.app</p>
+            <h3><a href="projects/auto-bookclub.html">Auto Bookclub AI</a></h3>
+            <p>
+              Search a book, get a structured debate between two AI personas with opposing reading
+              philosophies. A two-stage LLM pipeline with strict JSON Schema validation keeps every
+              turn deterministic and continuable.
+            </p>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">TypeScript</li>
+              <li class="chip">Next.js 16</li>
+              <li class="chip">OpenAI Responses API</li>
+              <li class="chip">Zustand</li>
+              <li class="chip">Clerk</li>
+              <li class="chip">Vercel</li>
+            </ul>
+            <div class="links">
+              <a href="projects/auto-bookclub.html">
+                Read case study
+                <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://auto-bookclub-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Live site</a>
+            </div>
+          </article>
+        </div>
+
+        <p style="margin-top: var(--space-6);">
+          <a href="projects/" class="btn btn-ghost">
+            See all projects
+            <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <p class="footer-meta">&copy; <span data-current-year>2026</span> Sunwoo Jeong. Built with plain HTML, CSS, and JavaScript.</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/swjeong0825" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sunwoo-jeong-4b6621198" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:sunwoojeongOfficial@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

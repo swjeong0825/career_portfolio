@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experience &mdash; Sunwoo Jeong</title>
+  <meta name="description" content="Career timeline for Sunwoo Jeong: Software Engineer at Amazon (2022\u20132026), Full-Stack Intern at ACEA (2021), B.S. Computer Science from UMass Amherst." />
+  <link rel="canonical" href="https://swjapps.com/experience/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Experience &mdash; Sunwoo Jeong" />
+  <meta property="og:description" content="Career timeline and skills." />
+  <meta property="og:url" content="https://swjapps.com/experience/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-brand" href="../" aria-label="Home">
+          <span class="brand-mark">SJ</span>
+          <span>Sunwoo Jeong</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open navigation menu">
+          <span></span>
+        </button>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="../">Home</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="./" aria-current="page">Experience</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Experience</p>
+          <h1>Three years shipping backend, data, and ML systems at Amazon scale.</h1>
+          <p class="lead">
+            From real-time event pipelines to multilingual ML training jobs, here's where I've spent
+            my time and what I've learned to build.
+          </p>
+        </div>
+
+        <ol class="timeline" aria-label="Career timeline">
+          <li class="timeline-item">
+            <div class="when">Jul 2022 &mdash; Jan 2026 &middot; Irvine, CA</div>
+            <div class="role">Software Development Engineer</div>
+            <div class="company">Amazon.com<span class="sep">&middot;</span>Catalog &amp; Recommendations</div>
+            <ul>
+              <li>
+                Developed high-throughput backend services for real-time recommendation systems using DynamoDB and internal TypeScript frameworks, 
+                integrating with SQS/Lambda-based event pipelines for live customer-event processing; 
+                supported systems serving 1M+ requests per minute at sub-160ms latency.
+              </li>
+              <li>
+                Built a contract-first backend service on AWS (API Gateway + Lambda + DynamoDB) for
+                product recommendations and metric management &mdash; AWS CDK for infrastructure
+                as code, Smithy-defined APIs, and Java Lambdas.
+              </li>
+              <li>
+                Designed a two-stage ML + LLM pipeline that pre-detects misclassified
+                item-to-category mappings in a <strong>600M-item / 40K-category catalog</strong> and
+                publishes a daily stoplist to cut manual remediation. Corrected misclassifications
+                for items representing roughly 2% of total product-page views in the US marketplace.
+              </li>
+              <li>
+                Expanded an embedding-based item categorization pipeline from US-only to
+                multilingual marketplaces &mdash; selected Hugging Face multilingual
+                text-to-embedding models, containerized the PyTorch stack in Docker, published to
+                AWS ECR, and ran per-marketplace training jobs on EC2.
+              </li>
+              <li>
+                Redesigned a media categorization data pipeline by migrating from a monolithic
+                system to modular, entity-specific processing flows for non-purchasable content
+                (product photos, videos, collections), improving system isolation and reducing
+                cross-entity failures. Enabled scalable onboarding of new media types &mdash;
+                including computer-vision-based categorization for visual content.
+              </li>
+              <li>
+                Automated S3-to-DynamoDB ingestion with a Lambda listener on S3 events, keeping
+                the metrics dataset current with no manual intervention.
+              </li>
+            </ul>
+            <ul class="chips" aria-label="Tech used at Amazon">
+              <li class="chip">Python</li>
+              <li class="chip">Java</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">AWS Lambda</li>
+              <li class="chip">SQS</li>
+              <li class="chip">DynamoDB</li>
+              <li class="chip">API Gateway</li>
+              <li class="chip">AWS CDK</li>
+              <li class="chip">Smithy</li>
+              <li class="chip">Docker</li>
+              <li class="chip">PyTorch</li>
+              <li class="chip">EC2 / ECR</li>
+              <li class="chip">Hugging Face</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <div class="when">Jun 2021 &mdash; Aug 2021 &middot; Boston, MA</div>
+            <div class="role">Full-Stack Developer Intern</div>
+            <div class="company">Advanced Continuing Education Association (ACEA)</div>
+            <ul>
+              <li>
+                Built backend data flow and query optimization for a certificate-data saving
+                feature using Java Spring; contributed to the React frontend and MySQL schema.
+              </li>
+            </ul>
+            <ul class="chips" aria-label="Tech used at ACEA">
+              <li class="chip">Java Spring</li>
+              <li class="chip">React</li>
+              <li class="chip">MySQL</li>
+            </ul>
+          </li>
+
+          <li class="timeline-item">
+            <div class="when">May 2022 &middot; Amherst, MA</div>
+            <div class="role">B.S. Computer Science, Minor in Statistics</div>
+            <div class="company">University of Massachusetts, Amherst<span class="sep">&middot;</span>GPA 3.97</div>
+            <ul>
+              <li>
+                Software development coursework: Software Engineering, Data Management,
+                Programming with Data Structures, Computer Systems Principles, Algorithms,
+                Leadership Practicum.
+              </li>
+              <li>
+                Data science coursework: Algorithms for Data Science, Principles of Data Science,
+                Artificial Intelligence.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="skills-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Skills</p>
+          <h2 id="skills-h">What I reach for.</h2>
+          <p>Grouped by where they sit in a typical service or pipeline.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <ul class="chips">
+              <li class="chip">Python</li>
+              <li class="chip">Java</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">SQL</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>Cloud &amp; infra</h4>
+            <ul class="chips">
+              <li class="chip">AWS Lambda</li>
+              <li class="chip">SQS</li>
+              <li class="chip">DynamoDB</li>
+              <li class="chip">API Gateway</li>
+              <li class="chip">AWS CDK</li>
+              <li class="chip">Smithy</li>
+              <li class="chip">EC2 / ECR</li>
+              <li class="chip">S3</li>
+              <li class="chip">Docker</li>
+              <li class="chip">Railway</li>
+              <li class="chip">Vercel</li>
+              <li class="chip">Neon</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>Backend &amp; data</h4>
+            <ul class="chips">
+              <li class="chip">FastAPI</li>
+              <li class="chip">ExpressJS</li>
+              <li class="chip">Java Spring</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">MySQL</li>
+              <li class="chip">SQLAlchemy</li>
+              <li class="chip">Alembic</li>
+              <li class="chip">Prisma ORM</li>
+              <li class="chip">DDD</li>
+              <li class="chip">Repository / Unit of Work</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>ML &amp; LLM</h4>
+            <ul class="chips">
+              <li class="chip">PyTorch</li>
+              <li class="chip">Hugging Face</li>
+              <li class="chip">OpenAI Responses API</li>
+              <li class="chip">Groq</li>
+              <li class="chip">Gemini</li>
+              <li class="chip">Strict JSON Schema</li>
+              <li class="chip">Embeddings</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>Frontend</h4>
+            <ul class="chips">
+              <li class="chip">React</li>
+              <li class="chip">Next.js (App Router)</li>
+              <li class="chip">Zustand</li>
+              <li class="chip">Vanilla HTML / CSS / JS</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>Practices</h4>
+            <ul class="chips">
+              <li class="chip">Contract-first APIs</li>
+              <li class="chip">IaC</li>
+              <li class="chip">Event-driven design</li>
+              <li class="chip">Domain-driven design</li>
+              <li class="chip">AI-assisted development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <p class="footer-meta">&copy; <span data-current-year>2026</span> Sunwoo Jeong. Built with plain HTML, CSS, and JavaScript.</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/swjeong0825" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sunwoo-jeong-4b6621198" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:sunwoojeongOfficial@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

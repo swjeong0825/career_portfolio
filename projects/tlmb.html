@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tennis League Management Bot &mdash; Sunwoo Jeong</title>
+  <meta name="description" content="Case study: a chat-first tennis league app where the LLM never touches the write path. FastAPI, PostgreSQL, DDD, and a stateless intent service." />
+  <link rel="canonical" href="https://swjapps.com/projects/tlmb.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Tennis League Management Bot &mdash; Case Study" />
+  <meta property="og:description" content="A chat-first league app where the LLM never touches the write path." />
+  <meta property="og:url" content="https://swjapps.com/projects/tlmb.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-brand" href="../" aria-label="Home">
+          <span class="brand-mark">SJ</span>
+          <span>Sunwoo Jeong</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open navigation menu">
+          <span></span>
+        </button>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="../">Home</a></li>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../experience/">Experience</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="detail-hero">
+      <div class="container">
+        <p class="eyebrow">Case study &middot; Personal project</p>
+        <h1>Tennis League Management Bot</h1>
+        <p class="lead">
+          A tennis match-recording app for casual groups. The whole product is a single chat box
+          backed by an LLM agent &mdash; users type things like "record match result" or "show standings"
+          and the agent guides them through. The interesting part isn't the chat; it's the backend
+          architecture that keeps the LLM useful without letting it write to the database.
+        </p>
+        <div class="meta">
+          <a class="live-link" href="https://tlmb.swjapps.com" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-sm" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M9 3h4v4M13 3 7 9M7 4H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            tlmb.swjapps.com
+          </a>
+          <a href="https://github.com/swjeong0825/TLMB_backend_main" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-sm" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.5 15.6c.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.4.7.1-.6.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2.1 0 3-1.8 3.7-3.6 3.9.3.3.5.7.5 1.5v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 0Z"/></svg>
+            Backend repo
+          </a>
+          <a href="https://github.com/swjeong0825/TLMB_chat_to_intent" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-sm" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.5 15.6c.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.4.7.1-.6.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2.1 0 3-1.8 3.7-3.6 3.9.3.3.5.7.5 1.5v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 0Z"/></svg>
+            Chat-to-Intent repo
+          </a>
+          <a href="https://github.com/swjeong0825/TLMB_frontend_v0" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-sm" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.5 15.6c.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.4.7.1-.6.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2.1 0 3-1.8 3.7-3.6 3.9.3.3.5.7.5 1.5v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 0Z"/></svg>
+            Frontend repo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="problem-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">The architectural problem</p>
+          <h2 id="problem-h">A simple chat UI shifts complexity to the backend.</h2>
+        </div>
+        <div class="prose stack">
+          <p>
+            Many existing tennis-league apps require players to learn a new interface, navigate
+            multiple screens, and understand specific workflows before they can use the product
+            effectively. I wanted to reduce that friction as much as possible, so the entire product
+            is a single chat box powered by an AI agent.
+          </p>
+          <p>
+            That simple frontend creates an interesting backend problem. Instead of putting most
+            of the complexity in the UI, the system shifts it to the backend architecture. The
+            interesting question becomes: how do you let an LLM be the front door without letting
+            it become the source of truth, and without bypassing domain validation?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="arch-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">System architecture</p>
+          <h2 id="arch-h">Three services, one boundary that matters.</h2>
+          <p>
+            The app is split into a vanilla static frontend, an LLM-powered chat-to-intent service,
+            and a core domain backend. The boundary that matters is between the chat service and
+            writes &mdash; the chat service never issues write requests.
+          </p>
+        </div>
+
+        <div class="arch-block" role="img" aria-label="System architecture diagram. The frontend talks to the chat-to-intent service for natural-language requests, which only reads from the backend. Confirmed write forms go directly from the frontend to the backend.">
+Frontend (Browser)
+   |
+   |  POST /chat  { client_message, last_server_message, league_id, [host_token] }
+   v
+Chat-to-Intent Server  ---- LLM (intent + parameter extraction)
+   |
+   |  GET only
+   v
+TLM Backend Main  ---- PostgreSQL (domain data)
+   ^
+   |  Confirmed write forms (POST / PATCH / DELETE)
+   |  go DIRECTLY from frontend, bypassing chat service
+Frontend (Browser)
+        </div>
+
+        <div class="callout" style="margin-top: var(--space-5);">
+          <strong>Key constraint:</strong>
+          For read operations (standings, history, roster), the chat-to-intent service calls
+          backend GET endpoints and returns a user-friendly response. For writes (submit match,
+          edit nickname, delete record), it returns a pre-filled form payload only. The frontend
+          renders that payload, the user confirms or edits it, and submits the final request
+          directly to the backend. Human confirmation stays in the loop, and the LLM layer never
+          mutates production data.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="subsystems-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Subsystems</p>
+          <h2 id="subsystems-h">Three repositories with clear ownership.</h2>
+          <p>
+            Each piece is small enough to reason about in isolation. The frontend owns presentation
+            and confirmation; the chat service owns intent classification and parameter extraction;
+            the backend owns persistence and domain validation.
+          </p>
+        </div>
+
+        <div class="subsystem-grid">
+          <article class="subsystem">
+            <h4>TLMB Backend Main</h4>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">FastAPI</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">SQLAlchemy</li>
+              <li class="chip">Alembic</li>
+              <li class="chip">DDD</li>
+            </ul>
+            <p>
+              Domain logic, persistence, and the public REST API. Modeled with Domain-Driven Design:
+              <code>League</code> and <code>Match</code> as aggregate roots with value objects, policies,
+              and domain services. Layered (domain / application / infrastructure) with a Repository
+              pattern and Unit of Work for transactional consistency. Admin operations are gated by
+              an <code>X-Host-Token</code> header.
+            </p>
+            <a class="repo-link" href="https://github.com/swjeong0825/TLMB_backend_main" target="_blank" rel="noopener noreferrer">
+              View repository
+              <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <article class="subsystem">
+            <h4>TLMB Chat-to-Intent</h4>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">FastAPI</li>
+              <li class="chip">OpenAI</li>
+              <li class="chip">Groq</li>
+              <li class="chip">Gemini</li>
+              <li class="chip">Stateless</li>
+            </ul>
+            <p>
+              An LLM-powered intermediary classifying natural-language messages into 10 intents.
+              Two-stage pipeline: intent classification with per-intent confidence thresholds, then
+              parameter extraction. Low-confidence inputs return a structured clarification question.
+              Stateless &mdash; the client carries context via <code>last_server_message</code>. Owns
+              no domain logic; reads from the backend via <code>GET</code> only.
+            </p>
+            <a class="repo-link" href="https://github.com/swjeong0825/TLMB_chat_to_intent" target="_blank" rel="noopener noreferrer">
+              View repository
+              <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <article class="subsystem">
+            <h4>TLMB Frontend</h4>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">Vanilla JS</li>
+              <li class="chip">i18n (en/ko)</li>
+            </ul>
+            <p>
+              No-build static client &mdash; plain HTML/CSS/JS, no framework or bundler. Each page is
+              its own <code>index.html</code> plus a per-page entry script and a small set of shared
+              helpers (i18n, config, error mapping). When the chat returns a write intent, the
+              browser renders the pre-filled form for the user to confirm and submits directly to
+              the backend.
+            </p>
+            <a class="repo-link" href="https://github.com/swjeong0825/TLMB_frontend_v0" target="_blank" rel="noopener noreferrer">
+              View repository
+              <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="infra-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Infra &amp; dev practice</p>
+          <h2 id="infra-h">Isolated environments for AI-assisted development.</h2>
+        </div>
+        <div class="prose stack">
+          <p>
+            The backend is hosted on Railway and the database uses Neon serverless Postgres.
+            Because I lean heavily on AI agents during development, my main infrastructure
+            requirement was safe, isolated environments for feature work. Railway makes it easy to
+            spin up a separate backend environment per development branch, while Neon's database
+            branching gives each branch an isolated copy of the database.
+          </p>
+          <p>
+            That setup lets AI agents implement and test features more freely &mdash; running real
+            integration tests against real data &mdash; without risking any change to production.
+            It's a small infra decision that has an outsized effect on how fast I can iterate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-divider" aria-labelledby="demo-h">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Demo</p>
+          <h2 id="demo-h">See the chat flow end-to-end.</h2>
+          <p>Walkthrough of standings, match submission, and admin edits in the live app.</p>
+        </div>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/ba1-wXQDHOY"
+            title="TLMB demo on YouTube"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+        <div class="hero-cta" style="margin-top: var(--space-6);">
+          <a class="btn btn-primary" href="https://tlmb.swjapps.com" target="_blank" rel="noopener noreferrer">
+            Try the live app
+            <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="../projects/">All projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <p class="footer-meta">&copy; <span data-current-year>2026</span> Sunwoo Jeong. Built with plain HTML, CSS, and JavaScript.</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/swjeong0825" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sunwoo-jeong-4b6621198" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:sunwoojeongOfficial@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

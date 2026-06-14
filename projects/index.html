@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects &mdash; Sunwoo Jeong</title>
+  <meta name="description" content="Personal projects by Sunwoo Jeong &mdash; LLM-driven product surfaces backed by strict, well-modeled APIs." />
+  <link rel="canonical" href="https://swjapps.com/projects/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects &mdash; Sunwoo Jeong" />
+  <meta property="og:description" content="LLM-driven product surfaces backed by strict, well-modeled APIs." />
+  <meta property="og:url" content="https://swjapps.com/projects/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-brand" href="../" aria-label="Home">
+          <span class="brand-mark">SJ</span>
+          <span>Sunwoo Jeong</span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open navigation menu">
+          <span></span>
+        </button>
+        <ul class="nav-links" data-nav-links>
+          <li><a href="../">Home</a></li>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../experience/">Experience</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Projects</p>
+          <h1>Things I've shipped, end to end.</h1>
+          <p class="lead">
+            Each project below is a working live site. I usually start from a question about
+            architecture &mdash; how to keep an LLM useful without putting it in the write path,
+            or how to make structured generation deterministic enough to build on &mdash; and let
+            the product fall out of that.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <p class="eyebrow">Live &middot; tlmb.swjapps.com</p>
+            <h3><a href="tlmb.html">Tennis League Management Bot</a></h3>
+            <p>
+              A chat-first tennis league app split across three repositories: a domain backend
+              (FastAPI + PostgreSQL) modeled with DDD, an LLM intent service that interprets
+              natural-language messages, and a vanilla static frontend. Writes never go through the
+              LLM &mdash; the user always confirms a pre-filled form before mutation.
+            </p>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">Python</li>
+              <li class="chip">FastAPI</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">SQLAlchemy</li>
+              <li class="chip">Alembic</li>
+              <li class="chip">OpenAI / Groq / Gemini</li>
+              <li class="chip">DDD</li>
+              <li class="chip">Railway</li>
+              <li class="chip">Neon</li>
+            </ul>
+            <div class="links">
+              <a href="tlmb.html">
+                Read case study
+                <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://tlmb.swjapps.com" target="_blank" rel="noopener noreferrer">Live site</a>
+              <a href="https://github.com/swjeong0825/TLMB_backend_main" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Live &middot; auto-bookclub-ai.vercel.app</p>
+            <h3><a href="auto-bookclub.html">Auto Bookclub AI</a></h3>
+            <p>
+              Search a book, get a 6-turn debate between two AI personas with opposing reading
+              philosophies. A two-stage LLM pipeline (persona generation, then sequential
+              per-turn generation) with strict JSON Schema validation keeps the output reliable
+              enough for an interactive continuation flow.
+            </p>
+            <ul class="chips" aria-label="Tech stack">
+              <li class="chip">TypeScript</li>
+              <li class="chip">Next.js 16</li>
+              <li class="chip">OpenAI Responses API</li>
+              <li class="chip">Zustand</li>
+              <li class="chip">Open Library / Google Books</li>
+              <li class="chip">Clerk</li>
+              <li class="chip">Vercel</li>
+            </ul>
+            <div class="links">
+              <a href="auto-bookclub.html">
+                Read case study
+                <svg class="icon arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://auto-bookclub-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Live site</a>
+              <a href="https://github.com/swjeong0825/Auto-Bookclub-AI" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <p class="footer-meta">&copy; <span data-current-year>2026</span> Sunwoo Jeong. Built with plain HTML, CSS, and JavaScript.</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/swjeong0825" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sunwoo-jeong-4b6621198" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:sunwoojeongOfficial@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
